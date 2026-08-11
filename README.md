@@ -1,8 +1,8 @@
-# [Nombre del proyecto]
+Preguntas Cerradas
 
-**Alumno:** [Apellido, Nombre]
-**Curso:** [Nombre del curso]
-**Fecha de inicio:** [dd/mm/aaaa]
+**Alumno:** Cambera Rafael
+**Curso:** Lógica de programación 
+**Fecha de inicio:** 01/07/2026
 
 ## 1. Objetivo del proyecto
 
