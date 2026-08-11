@@ -1,0 +1,84 @@
+Proceso EduSync_AI_EvaluacionDocente
+
+    // Definición de variables
+    Definir usuario, contrasena Como Cadena
+    Definir credencialesValidas, aceptarSugerencias Como Logico
+    Definir opcionMenu Como Entero
+    Definir archivoEvaluacion, datosEntrada Como Cadena
+    Definir reporteGenerado, evaluacionFinal Como Cadena
+
+    Escribir "=== INICIO DE SESIÓN EDUSYNC AI ==="
+    
+    // Repetir autenticación hasta obtener credenciales válidas
+    Repetir
+        Escribir "Ingrese usuario docente:"
+        Leer usuario
+        Escribir "Ingrese contraseña:"
+        Leer contrasena
+        
+        // Simulación de validación
+        credencialesValidas <- ValidarCredenciales(usuario, contrasena)
+        
+        Si NO credencialesValidas Entonces
+            Escribir "[ERROR] Credenciales inválidas. Intente nuevamente."
+        FinSi
+    Hasta Que credencialesValidas
+
+    Escribir "Acceso concedido. Cargando Panel Principal..."
+
+    // Selección de acción
+    Escribir "Seleccione una opción:"
+    Escribir "1. Crear evaluación"
+    Escribir "2. Analizar evaluación"
+    Leer opcionMenu
+
+    Según opcionMenu Hacer
+        1:
+            Escribir "Modo seleccionado: Crear evaluación"
+        2:
+            Escribir "Modo seleccionado: Analizar evaluación"
+        De Otro Modo:
+            Escribir "Opción por defecto: Analizar evaluación"
+    FinSegún
+
+    // Entrada de datos y persistencia inicial
+    Escribir "Ingrese datos del curso o suba el archivo de evaluación (PDF, Word, etc.):"
+    Leer datosEntrada
+    
+    GuardarEnBaseDeDatos("BD_EvaluacionesTemp", datosEntrada)
+
+    // Procesamiento con Inteligencia Artificial
+    Escribir "La IA está procesando y analizando la evaluación..."
+    
+    // Evaluación según estándares internacionales
+    EvaluarEstandar("Recursos Digitales")
+    EvaluarEstandar("Calidad de la Evaluación")
+    EvaluarEstandar("Empoderamiento Estudiantil")
+    EvaluarEstandar("Retroalimentación")
+
+    // Generación de resultados
+    reporteGenerado <- GenerarReportePuntajesYRecomendaciones()
+    GuardarEnBaseDeDatos("BD_Reportes", reporteGenerado)
+    Escribir "Reporte de sugerencias generado exitosamente."
+
+    // Decisión de revisión docente
+    Escribir "¿Desea aceptar las sugerencias generadas por la IA? (Verdadero/Falso):"
+    Leer aceptarSugerencias
+
+    Si aceptarSugerencias Entonces
+        evaluacionFinal <- AplicarMejorasIA(datosEntrada, reporteGenerado)
+        Escribir "Mejoras de IA aplicadas correctamente."
+    Sino
+        evaluacionFinal <- EditarManualmente(datosEntrada)
+        Escribir "Ajustes manuales registrados."
+    FinSi
+
+    // Guardado y exportación
+    GuardarEnBaseDeDatos("BD_EvaluacionesFinales", evaluacionFinal)
+    
+    Escribir "Seleccione formato para exportar/compartir (PDF/Word):"
+    ExportarOCompartir(evaluacionFinal)
+
+    Escribir "Proceso finalizado con éxito. === FIN ==="
+
+FinProceso
