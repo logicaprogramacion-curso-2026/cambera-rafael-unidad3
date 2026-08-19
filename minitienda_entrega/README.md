@@ -1,8 +1,8 @@
 # MiniTienda - Sistema de Registro y Análisis de Ventas
 
 **Curso:** Lógica de Programación - UIDE  
-**Fecha:** 2024  
-**Alumno:** [NOMBRE Y APELLIDO]
+**Fecha:** 2026  
+**Alumno:** Rafael Cambera
 
 ---
 
